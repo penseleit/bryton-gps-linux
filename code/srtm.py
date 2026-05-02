@@ -7,6 +7,7 @@ https://pypi.python.org/pypi/gpxtools
 
 """
 import sys, random, re, os, urllib, zipfile, tempfile
+from urllib.error import HTTPError
 from math import floor, ceil
 from io import StringIO
 
@@ -255,7 +256,7 @@ class SrtmLayer(object):
                     self._download_srtm_tiff(srtm_filename)
                 except Exception as e:
 
-                    if isinstance(e, urllib.error.HTTPError) and e.code == 404:
+                    if isinstance(e, HTTPError) and e.code == 404:
                             raise RuntimeError(
                                 'Elevation db not available at your location')
                     else:

@@ -19,6 +19,7 @@
 
 import json
 import urllib
+from urllib.error import URLError  
 from io import StringIO
 
 try:
@@ -35,7 +36,7 @@ _URL_UPLOAD = 'http://app.strava.com/upload/select'
 _URL_UPLOAD_STATUS = 'http://app.strava.com/upload/progress.json?' \
         'new_uploader=true&ids[]={id}'
 
-StravaError = urllib.error.URLError
+StravaError = URLError
 
 
 

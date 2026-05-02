@@ -43,6 +43,22 @@ Data Description for Rider40
 <https://github.com/pitmairen/bryton-gps-linux/raw/master/Rider40>.
 
 
+**Rider 10**
+
+Tyr to connect via bluetooth
+
+```
+sudo btmon 
+```
+
+to view live bluetooth status.
+
+```
+sudo bluetoothctl 
+```
+
+to try to connect/pair
+
 
 ## Usage:
 
