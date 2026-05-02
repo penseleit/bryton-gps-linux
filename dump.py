@@ -151,7 +151,7 @@ def main():
             dump_device(dev, args.output)
 
     except RuntimeError as e:
-        print ('Error:', e.message)
+        print ('Error:', e)
         return 1
 
 
