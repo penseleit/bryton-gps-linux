@@ -1,5 +1,4 @@
-Bryton GPS on linux
-===================
+# Bryton GPS on linux
 
 This is an attempt to make Bryton GPS devices usable on Linux.
 
@@ -39,32 +38,47 @@ It probably works with other devices.
 
 **Rider 40:**
 
-`Data Description for Rider40
-<https://github.com/pitmairen/bryton-gps-linux/raw/master/Rider40>`_.
+Data Description for Rider40
+
+<https://github.com/pitmairen/bryton-gps-linux/raw/master/Rider40>.
 
 
 
-Usage:
-------
+## Usage:
 
-You need Python 2.7.
+This code has been updated to use Python 3.14.4.
 
 And if you are using one of Rider20, Rider40, Rider35, you also need the
-`py_sg module <https://pypi.python.org/pypi/py_sg/>`_.
+`py3_sg module <https://pypi.org/project/py3-sg//>`.
+
 Rider50 and Rider20+ don't need this.
 
-This can be installed with pip or easy_install:
+### Setup virtual environment
 
-    pip install py_sg
+```
+  $ cd bryton-gps-linux
 
+  $ python3 -m venv venv
+```
+
+### Install dependencies
+
+```
+  (.venv)$ pip install -r requirements.txt
+```
 
 To access the device without root access you can use the following udev rule:
 (Not needed by Rider50 and Rider20+)
 
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5720", GROUP="users"
+```
+  SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5720", GROUP="users"
+```
 
 Place this into the file "/etc/udev/rule.d/99-brytongps.rules" you may have to reboot for it to take effect.
 
 Now you can run:
 
-    $ python brytongps.py -h
+```
+  (.venv)$ cd code
+  (.venv)$ python brytongps.py -h
+```

@@ -26,7 +26,7 @@ from common import print_msg
 
 try:
     import py_sg
-except ImportError, e:
+except ImportError as e:
     print_msg('You need to install the "py_sg" module.')
     sys.exit(1)
 

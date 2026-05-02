@@ -1,0 +1,10 @@
+GDAL==3.12.3
+html5lib==1.1
+mechanize==0.4.10
+numpy==2.4.4
+packaging==26.2
+py3_sg==0.16
+setuptools==82.0.1
+six==1.17.0
+webencodings==0.5.1
+wheel==0.47.0

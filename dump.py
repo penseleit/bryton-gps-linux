@@ -26,9 +26,9 @@ import sys
 import argparse
 
 try:
-    import py_sg
-except ImportError, e:
-    print('You need to install the "py_sg" module.')
+    import py3_sg
+except ImportError as e:
+    print('You need to install the "py3_sg" module.')
     sys.exit(1)
 
 
@@ -87,7 +87,7 @@ def read_serial(dev):
     cmd[8] = ord(s[1])
 
 
-    return py_sg.read(dev, pack_scsi_cmd(cmd), 2048)[-16:]
+    return py3_sg.read(dev, pack_scsi_cmd(cmd), 2048)[-16:]
 
 
 def read_block(dev, addr):
@@ -113,7 +113,7 @@ def read_block(dev, addr):
 
 
 
-    return py_sg.read(dev, pack_scsi_cmd(cmd), 512 * blocks)
+    return py3_sg.read(dev, pack_scsi_cmd(cmd), 512 * blocks)
 
 
 
@@ -150,7 +150,7 @@ def main():
 
             dump_device(dev, args.output)
 
-    except RuntimeError, e:
+    except RuntimeError as e:
         print ('Error:', e.message)
         return 1
 

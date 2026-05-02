@@ -18,9 +18,8 @@
 #
 
 import json
-import urllib2
-
-import cStringIO as StringIO
+import urllib
+from io import StringIO
 
 try:
     import mechanize
@@ -36,7 +35,7 @@ _URL_UPLOAD = 'http://app.strava.com/upload/select'
 _URL_UPLOAD_STATUS = 'http://app.strava.com/upload/progress.json?' \
         'new_uploader=true&ids[]={id}'
 
-StravaError = urllib2.URLError
+StravaError = urllib.error.URLError
 
 
 
@@ -51,7 +50,7 @@ def _open_url(browser, url):
 def _get_response(browser):
     try:
         return json.loads(browser.response().get_data())
-    except ValueError, e:
+    except ValueError as e:
         raise StravaError('Failed to parse JSON response')
 
 

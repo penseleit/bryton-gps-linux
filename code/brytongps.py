@@ -186,7 +186,7 @@ def export_tracks(tracks, export_func, file_ext, args):
         out = export_func(t, pretty=args.no_whitespace)
 
         if args.save_to is None and args.out_name is None:
-            print out
+            print(out)
             continue
 
         if args.out_name:
@@ -228,7 +228,7 @@ def upload_strava(tracks, args, fake_garmin_device=False):
     try:
         print_msg('Authenticating to strava.com')
         uploader.authenticate(args.strava_email, password)
-    except strava.StravaError, e:
+    except strava.StravaError as e:
         print_msg('StravaError:', e.reason)
         return
 
@@ -246,7 +246,7 @@ def upload_strava(tracks, args, fake_garmin_device=False):
 
 
 
-        except strava.StravaError, e:
+        except strava.StravaError as e:
             print_msg('StravaError:', e.reason)
 
 
@@ -478,8 +478,8 @@ if __name__ == '__main__':
 
     try:
         sys.exit(main())
-    except RuntimeError, e:
-        print_msg('Error: ', e.message)
+    except RuntimeError as e:
+        print_msg('Error: ', e)
         sys.exit(1)
 
 
